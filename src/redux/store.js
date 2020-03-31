@@ -2,6 +2,7 @@ import { createStore, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import reducer from './reducer'
 import { apiWatcher } from '../redux-saga/watchers'
+import { newArticlesMiddleware } from './middlewares'
 
 
 const initialState = { articles: []}
@@ -20,7 +21,7 @@ const store = createStore(
     reducer,
     initialState,
     applyMiddleware(
-        sagaMiddleware
+        sagaMiddleware, newArticlesMiddleware
     )
 )
 
