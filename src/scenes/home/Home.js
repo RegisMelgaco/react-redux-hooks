@@ -1,4 +1,5 @@
-import React from 'react';
+import React from 'react'
+import ArticlesList from './components/ArticlesList'
 
 
 function Home() {
@@ -6,9 +7,9 @@ function Home() {
     <div className="App">
       <h1>Articles</h1>
 
-      {/* <ArticlesList/> */}
+      <ArticlesList/>
     </div>
   );
 }
 
-export default Home;
+export default Home
