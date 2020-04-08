@@ -1,13 +1,13 @@
 import { call, put } from 'redux-saga/effects'
-import { ARTICLE_FETCH_SUCCEEDED, ARTICLE_FETCH_FAILED } from '../consts'
+import { articlesFetchSucceeded, articlesFetchFailed } from '../redux/actions/actions'
 import { requestArticles } from '../network/Api'
 
 
 export function* apiWorker() {
     try {
-        const payload = yield call(requestArticles)
-        yield put({type: ARTICLE_FETCH_SUCCEEDED, payload})
+        const payload = yield call(requestArticles);
+        yield put(articlesFetchSucceeded(payload));
     } catch (e) {
-        yield put({type: ARTICLE_FETCH_FAILED, payload: e})
+        yield put(articlesFetchFailed(e));
     }
 }

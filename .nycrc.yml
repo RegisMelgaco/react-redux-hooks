@@ -1,0 +1,10 @@
+all: true
+check-coverage: true
+
+reporter:
+  - 'html'
+  - 'text'
+
+exclude:
+  - "src/serviceWorker.js"
+  - "coverage"

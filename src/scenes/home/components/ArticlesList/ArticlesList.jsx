@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from'react-redux'
-import { requestArticlesFromApi } from '../../../redux/actions'
+import { requestArticlesFromApi } from '../../../../redux/actions/actions'
 
 
 function ArticlesList(props) {

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 import './index.css';
 import Home from './scenes/home/Home';
-import store from './redux/store'
+import store from './redux/store/store'
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(

@@ -1,6 +1,6 @@
 import React from 'react'
-import ArticlesList from './components/ArticlesList'
-import NewArticleForm from './components/NewArticleForm'
+import ArticlesList from './components/ArticlesList/ArticlesList'
+import NewArticleForm from './components/NewArticleForm/NewArticleForm'
 
 
 function Home() {

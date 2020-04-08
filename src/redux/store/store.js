@@ -1,11 +1,11 @@
 import { createStore, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
-import reducer from './reducer'
-import { apiWatcher } from '../redux-saga/watchers'
-import { newArticlesMiddleware } from './middlewares'
+import reducer from '../reducers/reducer'
+import { apiWatcher } from '../../redux-saga/watchers'
+import { newArticlesMiddleware } from '../middlewares/middlewares'
 
 
-const initialState = { articles: []}
+const defaultInitialState = { articles: []}
 // const testState = Object.assign({}, initialState, {
 //     articles: [{
 //         "userId": 1,
@@ -17,14 +17,17 @@ const initialState = { articles: []}
 
 const sagaMiddleware = createSagaMiddleware()
 
-const store = createStore(
-    reducer,
-    initialState,
-    applyMiddleware(
-        sagaMiddleware, newArticlesMiddleware
+function initStore(initialState = defaultInitialState) {
+    const store = createStore(
+        reducer,
+        initialState,
+        applyMiddleware(
+            sagaMiddleware, newArticlesMiddleware
+        )
     )
-)
+    sagaMiddleware.run(apiWatcher)
 
-sagaMiddleware.run(apiWatcher)
+    return store
+}
 
-export default store
+export default initStore

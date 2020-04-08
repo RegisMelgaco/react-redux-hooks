@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { createArticle } from '../../../redux/actions'
+import { createArticle } from '../../../../redux/actions/actions'
 
 
 function NewArticleForm() {
