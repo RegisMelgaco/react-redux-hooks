@@ -5,7 +5,7 @@ function reducer(state, action) {
     switch (action.type) {
         case ARTICLE_CREATE:
             const lastArticle = state.articles[state.articles.length-1]
-            const newArticleId = lastArticle != undefined ? lastArticle.id+1 : 1
+            const newArticleId = lastArticle !== undefined ? lastArticle.id+1 : 1
             const article = Object.assign({}, action.payload, {
                 id: newArticleId
             })

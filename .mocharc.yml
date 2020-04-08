@@ -2,19 +2,8 @@ require:
   - '@babel/register'
   - 'babel-polyfill'
 
-reporter: spec
-
 extension:
-  - js
-  - jsx
-
-spec: 
-  - '**/*.test.js'
-  - '**/*.test.jsx'
-
-watch: true
-watch-files:
-  - 'src/**/*.test.js'
-  - 'src/**/*.test.jsx'
+  - 'js'
+  - 'jsx'
 
 async-only: true

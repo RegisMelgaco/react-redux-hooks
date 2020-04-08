@@ -6,9 +6,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "mocha",
-    "test:withcov": "nyc mocha",
-    "test:nhe": "nyc --reporter=html --reporter=text mocha --watch --recursive --async-only --require @babel/register --require babel-polyfill src/testHelpers/setupEnzyme.js src/**/*.test.js src/**/*.test.jsx",
+    "test": "mocha 'src/testHelpers/setupEnzyme.js' 'src/**/*.test.js' 'src/**/*.test.jsx'",
+    "test:watch": "mocha -w 'src/testHelpers/setupEnzyme.js' 'src/**/*.test.js' 'src/**/*.test.jsx'",
+    "test:withcov": "mocha 'src/testHelpers/setupEnzyme.js' 'src/**/*.test.js' 'src/**/*.test.jsx'",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -27,9 +27,6 @@
     ]
   },
   "dependencies": {
-    "@sinonjs/referee-sinon": "^7.0.2",
-    "jsverify": "^0.8.4",
-    "knuth-shuffle": "^1.0.8",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",

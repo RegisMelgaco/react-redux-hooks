@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 import './index.css';
 import Home from './scenes/home/Home';
-import store from './redux/store/store'
+import initStore from './redux/store/store'
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <Provider store={initStore()}>
       <Home />
     </Provider>
   </React.StrictMode>,
