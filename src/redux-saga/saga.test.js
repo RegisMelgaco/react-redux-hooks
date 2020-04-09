@@ -1,21 +1,25 @@
-import sinon from  'sinon'
-import { expect } from 'chai'
+// import { put } from 'redux-saga/effects'
+// import sinon from  'sinon'
+// import { expect } from 'chai'
 
-import * as Api from '../network/Api'
-import { apiWorker } from './workers'
-import { articlesFetchFailed } from '../redux/actions/actions'
+// import * as Api from '../network/Api'
+// import { apiWorker } from './workers'
+// import { faillFetchArticles } from '../redux/actions/actions'
 
 
-describe('apiWorker', () => {
-    it('on error', done => {
-        const error = new Error({messange: "no internet connection"})
-        const fakeFetch = sinon.fake.throws(error)
-        sinon.replace(Api, 'requestArticles', fakeFetch)
+// describe('apiWorker', () => {
 
-        const gen = apiWorker()
+//     it('on error', done => {
+//         const spy = sinon.stub(Api, 'requestArticles').throws("dsadsa")
+//         const gen = apiWorker()
+//         gen.next()
 
-        expect(gen.next().value).to.be.equals(articlesFetchFailed(error))
-        expect(gen.next().done).to.be.true
-        done()
-    })
-})
+//         sinon.assert.match(gen.next().value, put(faillFetchArticles("dsadsa")))
+
+//         // expect(gen.next().value).to.be.equals(put(faillFetchArticles("asdads")))
+//         // expect(gen.next().done).to.be.true
+
+//         sinon.restore()
+//         done()
+//     })
+// })
