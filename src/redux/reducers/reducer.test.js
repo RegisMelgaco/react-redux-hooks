@@ -13,7 +13,7 @@ describe('reducer', () => {
             expect(state.areArticlesLoading).to.be.false
         })
         
-        testStore.dispatch(Actions.articlesFetchFailed({message: "error"}))
+        testStore.dispatch(Actions.faillFetchArticles(Error("something bad")))
     })
 
     it('on action articlesFetchSucceeded', done => {
@@ -23,7 +23,7 @@ describe('reducer', () => {
             expect(state.areArticlesLoading).to.be.false
         })
         
-        testStore.dispatch(Actions.articlesFetchSucceeded())
+        testStore.dispatch(Actions.succeedFetchArticles())
     })
 
     it('on action createArticle with no articles', done => {

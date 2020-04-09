@@ -1,4 +1,4 @@
-import { requestArticlesFromApi, createArticle, articlesFetchSucceeded, articlesFetchFailed } from "./actions"
+import { requestArticlesFromApi, createArticle, succeedFetchArticles, articlesFetchFailed, faillFetchArticles } from "./actions"
 import { expect } from 'chai'
 import { ARTICLES_FETCH_REQUESTED, ARTICLE_CREATE, ARTICLES_FETCH_SUCCEEDED, ARTICLES_FETCH_FAILED } from "../../consts"
 
@@ -23,9 +23,9 @@ describe('createArticle', () => {
     })
 })
 
-describe('finalizeFetchArticlesFromApi', () => {
+describe('succeedFetchArticles', () => {
     it('test action without payload', done => {
-        const action = articlesFetchSucceeded()
+        const action = succeedFetchArticles()
 
         expect(action.type).to.be.equal(ARTICLES_FETCH_SUCCEEDED)
         expect(action.payload.articles).to.be.empty
@@ -34,7 +34,7 @@ describe('finalizeFetchArticlesFromApi', () => {
 
     it('test with some payload', done => {
         const payload = [{title: "title"}, {value: 'value'}]
-        const action = articlesFetchSucceeded(payload)
+        const action = succeedFetchArticles(payload)
 
         expect(action.type).to.be.equal(ARTICLES_FETCH_SUCCEEDED)
         expect(Object.values(action.payload)).to.have.lengthOf(1)
@@ -46,11 +46,14 @@ describe('finalizeFetchArticlesFromApi', () => {
 describe('articlesFetchFailed', () => {
     it('test action instatiation', done => {
         const error = Error({messange: "error messange"})
-        const payload = {error}
-        const action = articlesFetchFailed(payload)
 
-        expect(action.type).to.be.equal(ARTICLES_FETCH_FAILED)
-        expect(action.payload.error).to.be.equal(payload)
+        const action = faillFetchArticles(error)
+        const expected = {
+            type: ARTICLES_FETCH_FAILED,
+            payload: {error}
+        }
+
+        expect(action).to.be.deep.equals(expected)
         done()
     })
 })
