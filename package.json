@@ -8,7 +8,7 @@
     "build": "react-scripts build",
     "test": "mocha 'src/testHelpers/setupEnzyme.js' 'src/**/*.test.js' 'src/**/*.test.jsx'",
     "test:watch": "mocha -w 'src/testHelpers/setupEnzyme.js' 'src/**/*.test.js' 'src/**/*.test.jsx'",
-    "test:withcov": "mocha 'src/testHelpers/setupEnzyme.js' 'src/**/*.test.js' 'src/**/*.test.jsx'",
+    "test:withcov": "nyc --reporter=lcov npm run test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
